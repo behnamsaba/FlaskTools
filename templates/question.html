@@ -1,0 +1,16 @@
+{%extends 'base.html' %}
+{%block title%}Question{{id}}{%endblock%}
+{%block content%}
+<h3>Question {{id}}:</h3>
+<p>{{q}}</p>
+<form action="/answer" method="POST">
+    <label for="Yes">Yes</label>
+    <input type="radio" id="yes" name="survey" value="Yes">
+    <br>
+    <label for="">No</label>
+    <input type="radio" id="No" name="survey" value="No">
+    <button>submit</button>
+</form>
+
+{%endblock%}
+
