@@ -8,8 +8,8 @@ debug=DebugToolbarExtension(app)
 app.config["DEBUG_TB_INTERCEPT_REDIRECTS"]= False
 
 responses=[]
-all_questions = list(surveys.satisfaction_survey.questions)
-questions_str = [str(x) for x in all_questions]
+questions_str = [x.question for x in surveys.satisfaction_survey.questions]
+all_choices = [x.choices for x in surveys.satisfaction_survey.questions]
 
 
 @app.route("/")
@@ -21,7 +21,9 @@ def home():
 @app.route("/questions/<id>")
 def ask_question(id):
     q=questions_str[int(id)]
-    return render_template("question.html",id=id,q=q)
+    options = all_choices[int(id)]
+    print(all_choices[int(id)])
+    return render_template("question.html",id=id,q=q,options=options)
 
 @app.route("/answer",methods=["POST"])
 def add_movie():

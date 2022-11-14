@@ -4,11 +4,10 @@
 <h3>Question {{id}}:</h3>
 <p>{{q}}</p>
 <form action="/answer" method="POST">
-    <label for="Yes">Yes</label>
-    <input type="radio" id="yes" name="survey" value="Yes">
-    <br>
-    <label for="">No</label>
-    <input type="radio" id="No" name="survey" value="No">
+    {%for option in options%}
+        <label for={{option}}>{{option}}</label>
+    <input type="radio" id={{option}} name="survey" value={{option}}>
+    {%endfor%}
     <button>submit</button>
 </form>
 

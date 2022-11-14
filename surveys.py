@@ -10,8 +10,6 @@ class Question:
         self.question = question
         self.choices = choices
         self.allow_text = allow_text
-    def __str__(self):
-        return self.question
 
 
 class Survey:
