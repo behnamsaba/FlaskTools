@@ -1,0 +1,11 @@
+{%extends 'base.html' %}
+{%block title%}Home Page {%endblock%}
+{%block content%}<h1>{{title}}</h1>
+<h3>With Session</h3>
+<p>{{instructions}}</p>
+<form action="/session" method="POST">
+    <label for="button">To Start the survey Click here</label>
+    <button id="button">Start</button>
+</form>
+
+{%endblock%}
